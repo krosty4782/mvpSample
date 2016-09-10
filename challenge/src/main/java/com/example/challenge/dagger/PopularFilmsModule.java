@@ -1,5 +1,9 @@
 package com.example.challenge.dagger;
 
+import android.support.annotation.NonNull;
+
+import com.example.challenge.popular.PopularFilmsPresenter;
+import com.example.challenge.popular.PopularFilmsPresenterImpl;
 import com.example.challenge.service.ApiFilmsService;
 import com.example.challenge.service.FilmsApi;
 import com.example.challenge.service.FilmsService;
@@ -15,6 +19,13 @@ import dagger.Provides;
 public class PopularFilmsModule {
 
     String apiKey = "70bea916230b169eb500a171c5264979";
+
+    @Provides
+    @PopularFilmsScope
+    public PopularFilmsPresenter providePopularFilmsPresenter(@NonNull FilmsService service) {
+
+        return new PopularFilmsPresenterImpl(service);
+    }
 
     @Provides
     @PopularFilmsScope
