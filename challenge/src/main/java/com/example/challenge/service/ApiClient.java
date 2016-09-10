@@ -15,4 +15,8 @@ public class ApiClient {
                 .setEndpoint(ENDPOINT)
                 .build();
     }
+
+    public <T> T api(Class<T> service) {
+        return restAdapter.create(service);
+    }
 }

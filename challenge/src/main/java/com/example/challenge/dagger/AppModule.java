@@ -1,6 +1,7 @@
 package com.example.challenge.dagger;
 
 import com.example.challenge.service.ApiClient;
+import com.example.challenge.service.FilmsApi;
 
 import dagger.Module;
 import dagger.Provides;
@@ -16,5 +17,11 @@ public class AppModule {
     @AppScope
     public ApiClient provideApiClient() {
         return new ApiClient();
+    }
+
+    @Provides
+    @AppScope
+    public FilmsApi provideFilmsApi(ApiClient apiClient) {
+        return apiClient.api(FilmsApi.class);
     }
 }

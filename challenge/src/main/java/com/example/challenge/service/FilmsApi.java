@@ -10,8 +10,8 @@ import rx.Observable;
  * Created by mfolcini on 10/09/2016.
  */
 
-public interface MoviesApi {
+public interface FilmsApi {
 
     @GET("/popular")
-    Observable<Popular> getPopular(@Query("page") String page, @Query("api_key") String key);
+    Observable<Popular> getPopular(@Query("page") String page, @Query("api_key") String apiKey);
 }
