@@ -7,7 +7,7 @@ import retrofit.RestAdapter;
  */
 
 public class ApiClient {
-    private static final String ENDPOINT = "http://docs.themoviedb.apiary.io/#reference/tv/";
+    private static final String ENDPOINT = "http://api.themoviedb.org/3/movie/";
     private final RestAdapter restAdapter;
 
     public ApiClient() {
