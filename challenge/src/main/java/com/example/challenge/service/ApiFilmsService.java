@@ -8,6 +8,7 @@ import com.example.challenge.model.Popular;
 import java.util.List;
 
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by mfolcini on 10/09/2016.
@@ -27,6 +28,6 @@ public class ApiFilmsService implements FilmsService{
     @Override
     public Observable<List<Film>> getPopular(String page) {
 
-        return api.getPopular(page, apiKey).map(Popular::getResults);
+        return api.getPopular(page, apiKey).map(Popular::getResults).observeOn(AndroidSchedulers.mainThread());
     }
 }

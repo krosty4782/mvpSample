@@ -1,35 +1,61 @@
 package com.example.challenge;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.challenge.dagger.AppComponent;
 import com.example.challenge.dagger.ComponentsManager;
 import com.example.challenge.dagger.PopularFilmsComponent;
 import com.example.challenge.dagger.PopularFilmsModule;
+import com.example.challenge.model.Film;
 import com.example.challenge.popular.PopularFilmsPresenter;
 import com.example.challenge.service.FilmsService;
+import com.github.ybq.endless.Endless;
+
+import java.util.List;
 
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.example.challenge.dagger.DaggerPopularFilmsComponent.builder;
 
 
 public class PopularFilmsActivity extends AppCompatActivity implements PopularFilmsPresenter.View {
 
-    @Inject
-    FilmsService service;
+    private static final int INITIAL_PAGE = 1;
 
     @Inject
+    FilmsService service;
+    @Inject
     PopularFilmsPresenter presenter;
+    @BindView(R.id.popular_recycler_view)
+    RecyclerView popularFilmsList;
+    private Endless endless;
+    private PopularFilmsAdapter popularFilmsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getPopularFilmsComponent().inject(this);
-        setContentView(R.layout.activity_home);
-        service.getPopular("1").subscribe(result -> Log.d("result", result.toString()), e -> Log.e("result", e.getMessage()));
+        setContentView(R.layout.activity_popular_films);
+        ButterKnife.bind(this);
+        configureView();
+    }
+
+    private void configureView() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        popularFilmsList.setLayoutManager(linearLayoutManager);
+        View loadingView = View.inflate(this, R.layout.layout_loading, null);
+        popularFilmsList.setAdapter(popularFilmsAdapter = new PopularFilmsAdapter());
+        endless = Endless.applyTo(popularFilmsList, loadingView);
+        presenter.onLoadMore(INITIAL_PAGE);
+        endless.setLoadMoreListener(page -> presenter.onLoadMore(page));
     }
 
     @Override
@@ -59,5 +85,11 @@ public class PopularFilmsActivity extends AppCompatActivity implements PopularFi
             ComponentsManager.get().putBaseComponent(PopularFilmsComponent.KEY, popularFilmsComponent);
         }
         return popularFilmsComponent;
+    }
+
+    @Override
+    public void showPopularFilms(List<Film> films) {
+        popularFilmsAdapter.addData(films);
+        endless.loadMoreComplete();
     }
 }
