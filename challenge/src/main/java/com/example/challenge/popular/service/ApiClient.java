@@ -1,4 +1,4 @@
-package com.example.challenge.service;
+package com.example.challenge.popular.service;
 
 import retrofit.RestAdapter;
 

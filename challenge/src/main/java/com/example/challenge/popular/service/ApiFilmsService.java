@@ -1,9 +1,9 @@
-package com.example.challenge.service;
+package com.example.challenge.popular.service;
 
 import android.support.annotation.NonNull;
 
-import com.example.challenge.model.Film;
-import com.example.challenge.model.Popular;
+import com.example.challenge.popular.model.Film;
+import com.example.challenge.popular.model.Popular;
 
 import java.util.List;
 

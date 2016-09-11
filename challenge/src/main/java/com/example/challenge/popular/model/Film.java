@@ -1,14 +1,15 @@
-package com.example.challenge.model;
+package com.example.challenge.popular.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by mfolcini on 10/09/2016.
  */
 
-public class Film {
+public class Film implements Serializable {
     boolean adult;
     @SerializedName("backdrop_path")
     String backdropPath;

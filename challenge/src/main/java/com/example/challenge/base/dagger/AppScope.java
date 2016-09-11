@@ -1,4 +1,4 @@
-package com.example.challenge.dagger;
+package com.example.challenge.base.dagger;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

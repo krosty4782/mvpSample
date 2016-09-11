@@ -1,9 +1,10 @@
-package com.example.challenge.popular;
+package com.example.challenge.popular.presenter;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.challenge.service.FilmsService;
+import com.example.challenge.popular.model.Film;
+import com.example.challenge.popular.service.FilmsService;
 
 import rx.subscriptions.CompositeSubscription;
 
@@ -28,6 +29,11 @@ public class PopularFilmsPresenterImpl implements PopularFilmsPresenter {
                 .subscribe(result -> {
                     view.showPopularFilms(result);
                 }, e -> Log.e("ERROR", e.getMessage())));
+    }
+
+    @Override
+    public void onFilmSelected(Film film) {
+        view.showFilmDetail(film);
     }
 
     @Override

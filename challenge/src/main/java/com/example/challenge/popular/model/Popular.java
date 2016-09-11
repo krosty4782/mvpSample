@@ -1,4 +1,4 @@
-package com.example.challenge.model;
+package com.example.challenge.popular.model;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.challenge;
+package com.example.challenge.popular;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,13 +6,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.example.challenge.dagger.AppComponent;
-import com.example.challenge.dagger.ComponentsManager;
+import com.example.challenge.R;
+import com.example.challenge.base.dagger.AppComponent;
+import com.example.challenge.base.dagger.ComponentsManager;
 import com.example.challenge.dagger.PopularFilmsComponent;
 import com.example.challenge.dagger.PopularFilmsModule;
-import com.example.challenge.model.Film;
-import com.example.challenge.popular.PopularFilmsPresenter;
-import com.example.challenge.service.FilmsService;
+import com.example.challenge.detail.DetailFilmActivity;
+import com.example.challenge.popular.model.Film;
+import com.example.challenge.popular.presenter.PopularFilmsPresenter;
+import com.example.challenge.popular.service.FilmsService;
 import com.github.ybq.endless.Endless;
 
 import java.util.List;
@@ -52,7 +54,7 @@ public class PopularFilmsActivity extends AppCompatActivity implements PopularFi
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         popularFilmsList.setLayoutManager(linearLayoutManager);
         View loadingView = View.inflate(this, R.layout.layout_loading, null);
-        popularFilmsList.setAdapter(popularFilmsAdapter = new PopularFilmsAdapter());
+        popularFilmsList.setAdapter(popularFilmsAdapter = new PopularFilmsAdapter(presenter));
         endless = Endless.applyTo(popularFilmsList, loadingView);
         presenter.onLoadMore(INITIAL_PAGE);
         endless.setLoadMoreListener(page -> presenter.onLoadMore(page));
@@ -91,5 +93,10 @@ public class PopularFilmsActivity extends AppCompatActivity implements PopularFi
     public void showPopularFilms(List<Film> films) {
         popularFilmsAdapter.addData(films);
         endless.loadMoreComplete();
+    }
+
+    @Override
+    public void showFilmDetail(Film film) {
+        startActivity(DetailFilmActivity.createIntent(this, film));
     }
 }

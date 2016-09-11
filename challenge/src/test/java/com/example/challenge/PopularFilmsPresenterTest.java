@@ -1,9 +1,9 @@
 package com.example.challenge;
 
-import com.example.challenge.model.Film;
-import com.example.challenge.popular.PopularFilmsPresenter;
-import com.example.challenge.popular.PopularFilmsPresenterImpl;
-import com.example.challenge.service.FilmsService;
+import com.example.challenge.popular.model.Film;
+import com.example.challenge.popular.presenter.PopularFilmsPresenter;
+import com.example.challenge.popular.presenter.PopularFilmsPresenterImpl;
+import com.example.challenge.popular.service.FilmsService;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -37,5 +37,14 @@ public class PopularFilmsPresenterTest {
         popularFilmsPresenter.attachView(mockedView);
         popularFilmsPresenter.onLoadMore(1);
         verify(mockedView).showPopularFilms(any());
+    }
+
+    @Test
+    public void test_onFilmSelected_showFilmDetail() {
+        Film film = new Film();
+        final PopularFilmsPresenterImpl popularFilmsPresenter = new PopularFilmsPresenterImpl(mockedService);
+        popularFilmsPresenter.attachView(mockedView);
+        popularFilmsPresenter.onFilmSelected(film);
+        verify(mockedView).showFilmDetail(film);
     }
 }

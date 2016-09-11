@@ -1,6 +1,8 @@
 package com.example.challenge.dagger;
 
-import com.example.challenge.PopularFilmsActivity;
+import com.example.challenge.popular.PopularFilmsActivity;
+import com.example.challenge.base.dagger.AppComponent;
+import com.example.challenge.base.dagger.BaseComponent;
 
 import dagger.Component;
 

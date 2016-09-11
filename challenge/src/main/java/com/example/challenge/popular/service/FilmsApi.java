@@ -1,6 +1,6 @@
-package com.example.challenge.service;
+package com.example.challenge.popular.service;
 
-import com.example.challenge.model.Popular;
+import com.example.challenge.popular.model.Popular;
 
 import retrofit.http.GET;
 import retrofit.http.Query;

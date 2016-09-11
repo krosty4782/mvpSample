@@ -1,7 +1,7 @@
-package com.example.challenge.dagger;
+package com.example.challenge.base.dagger;
 
-import com.example.challenge.service.ApiClient;
-import com.example.challenge.service.FilmsApi;
+import com.example.challenge.popular.service.ApiClient;
+import com.example.challenge.popular.service.FilmsApi;
 
 import dagger.Module;
 import dagger.Provides;

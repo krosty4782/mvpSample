@@ -1,6 +1,6 @@
-package com.example.challenge.service;
+package com.example.challenge.popular.service;
 
-import com.example.challenge.model.Film;
+import com.example.challenge.popular.model.Film;
 
 import java.util.List;
 

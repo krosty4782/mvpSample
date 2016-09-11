@@ -2,11 +2,11 @@ package com.example.challenge.dagger;
 
 import android.support.annotation.NonNull;
 
-import com.example.challenge.popular.PopularFilmsPresenter;
-import com.example.challenge.popular.PopularFilmsPresenterImpl;
-import com.example.challenge.service.ApiFilmsService;
-import com.example.challenge.service.FilmsApi;
-import com.example.challenge.service.FilmsService;
+import com.example.challenge.popular.presenter.PopularFilmsPresenter;
+import com.example.challenge.popular.presenter.PopularFilmsPresenterImpl;
+import com.example.challenge.popular.service.ApiFilmsService;
+import com.example.challenge.popular.service.FilmsApi;
+import com.example.challenge.popular.service.FilmsService;
 
 import dagger.Module;
 import dagger.Provides;

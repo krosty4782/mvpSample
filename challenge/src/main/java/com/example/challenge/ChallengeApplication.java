@@ -2,11 +2,11 @@ package com.example.challenge;
 
 import android.app.Application;
 
-import com.example.challenge.dagger.AppComponent;
-import com.example.challenge.dagger.AppModule;
-import com.example.challenge.dagger.ComponentsManager;
+import com.example.challenge.base.dagger.AppComponent;
+import com.example.challenge.base.dagger.AppModule;
+import com.example.challenge.base.dagger.ComponentsManager;
 
-import static com.example.challenge.dagger.DaggerAppComponent.builder;
+import static com.example.challenge.base.dagger.DaggerAppComponent.builder;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.example.challenge.dagger;
+package com.example.challenge.base.dagger;
 
 import java.util.HashMap;
 import java.util.Map;
