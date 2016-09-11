@@ -46,7 +46,7 @@ public class SimilarShowsActivity extends AppCompatActivity implements SimilarSh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSimilarShowsComponent().inject(this);
-        setContentView(R.layout.activity_detail_show);
+        setContentView(R.layout.activity_similar_shows);
         ButterKnife.bind(this);
         similarShowsPager.setAdapter(similarShowsAdapter);
     }

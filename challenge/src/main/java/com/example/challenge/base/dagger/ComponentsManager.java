@@ -6,8 +6,6 @@ import java.util.Map;
 public final class ComponentsManager {
 
     private static final String KEY_APP = "app";
-    private static final String KEY_COMMON = "commmon";
-    private static final String KEY_ACTIVITY = "activity";
     private final Map<String, ? super BaseComponent> baseComponents;
 
     // Singleton pattern

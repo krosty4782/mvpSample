@@ -21,14 +21,12 @@ public class PopularShowsModule {
     @Provides
     @PopularShowsScope
     public PopularShowsPresenter providePopularShowsPresenter(@NonNull ShowsService service) {
-
         return new PopularShowsPresenterImpl(service);
     }
 
     @Provides
     @PopularShowsScope
     public ShowsService provideShowsService(ShowsApi showsApi) {
-
         return new ApiShowsService(showsApi);
     }
 }
