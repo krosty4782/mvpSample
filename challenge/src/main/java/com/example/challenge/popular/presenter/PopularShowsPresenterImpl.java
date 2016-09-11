@@ -3,18 +3,18 @@ package com.example.challenge.popular.presenter;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.challenge.popular.model.Film;
-import com.example.challenge.popular.service.FilmsService;
+import com.example.challenge.popular.model.Show;
+import com.example.challenge.base.service.ShowsService;
 
 import rx.subscriptions.CompositeSubscription;
 
-public class PopularFilmsPresenterImpl implements PopularFilmsPresenter {
+public class PopularShowsPresenterImpl implements PopularShowsPresenter {
 
     private View view;
-    private FilmsService service;
+    private ShowsService service;
     private CompositeSubscription subscriptions = new CompositeSubscription();
 
-    public PopularFilmsPresenterImpl(@NonNull FilmsService service) {
+    public PopularShowsPresenterImpl(@NonNull ShowsService service) {
         this.service = service;
     }
 
@@ -27,13 +27,13 @@ public class PopularFilmsPresenterImpl implements PopularFilmsPresenter {
     public void onLoadMore(int page) {
         subscriptions.add(service.getPopular(Integer.toString(page))
                 .subscribe(result -> {
-                    view.showPopularFilms(result);
+                    view.showPopularShows(result);
                 }, e -> Log.e("ERROR", e.getMessage())));
     }
 
     @Override
-    public void onFilmSelected(Film film) {
-        view.showFilmDetail(film);
+    public void onShowSelected(Show show) {
+        view.showShowDetail(show);
     }
 
     @Override

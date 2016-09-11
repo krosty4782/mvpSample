@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".popular.PopularFilmsActivity"
+            android:name=".popular.PopularShowsActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,7 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".detail.DetailFilmActivity">
+        <activity
+            android:name=".detail.SimilarShowsActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

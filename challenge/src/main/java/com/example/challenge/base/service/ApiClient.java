@@ -1,4 +1,4 @@
-package com.example.challenge.popular.service;
+package com.example.challenge.base.service;
 
 import retrofit.RestAdapter;
 
@@ -7,7 +7,7 @@ import retrofit.RestAdapter;
  */
 
 public class ApiClient {
-    private static final String ENDPOINT = "http://api.themoviedb.org/3/movie/";
+    private static final String ENDPOINT = "http://api.themoviedb.org/3/tv/";
     private final RestAdapter restAdapter;
 
     public ApiClient() {

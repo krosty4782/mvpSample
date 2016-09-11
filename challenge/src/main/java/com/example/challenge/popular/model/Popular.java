@@ -9,7 +9,7 @@ import java.util.List;
 public class Popular {
 
     private int page;
-    private List<Film> results;
+    private List<Show> results;
 
     public int getPage() {
         return page;
@@ -19,11 +19,11 @@ public class Popular {
         this.page = page;
     }
 
-    public List<Film> getResults() {
+    public List<Show> getResults() {
         return results;
     }
 
-    public void setResults(List<Film> results) {
+    public void setResults(List<Show> results) {
         this.results = results;
     }
 }

@@ -1,8 +1,8 @@
 package com.example.challenge.base.dagger;
 
 import com.example.challenge.ChallengeApplication;
-import com.example.challenge.popular.service.ApiClient;
-import com.example.challenge.popular.service.FilmsApi;
+import com.example.challenge.base.service.ApiClient;
+import com.example.challenge.base.service.ShowsApi;
 
 import dagger.Component;
 
@@ -16,7 +16,7 @@ public interface AppComponent extends BaseComponent {
 
     ApiClient apiClient();
 
-    FilmsApi filmsApi();
+    ShowsApi showsApi();
 
     void inject(ChallengeApplication application);
 }
